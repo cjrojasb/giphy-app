@@ -8,9 +8,9 @@ export const getTrendingGiphys = () => {
   return response(options)
 }
 
-export const getGiphysByKeyword = (keyword) => {
+export const getGiphysByKeyword = ({limit = 5, keyword, page = 0}) => {
   const options = {
-    url: `/search?api_key=${apiKey}&q=${keyword}&limit=25&offset=0&rating=g&lang=en`,
+    url: `/search?api_key=${apiKey}&q=${keyword}&limit=${limit}&offset=${page * limit}&rating=g&lang=en`,
   }
   return response(options)
 }
