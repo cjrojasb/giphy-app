@@ -11,13 +11,11 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Gif({ onSubmit }) {
+export function SearchForm({ onSubmit }) {
   const [keyword, setKeyword] = useState('')
   const classes = useStyles();
 
   const handleSubmit = (event) => {
-
-    console.log(event)
     event.preventDefault()
     onSubmit({ keyword })
   }
@@ -35,3 +33,5 @@ export default function Gif({ onSubmit }) {
     </form>
   )
 }
+
+export default React.memo(SearchForm)

@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import { useLocation } from 'wouter'
-import SearchGif from 'components/SearchGif/SearchGif'
+import SearchForm from 'components/SearchForm/SearchForm'
 import Loading from 'components/Loading/Loading'
 import ListOfGifs from 'components/ListOfGifs/ListOfGifs'
 import LazyTrending from 'components/TrendingGifs/LazyTrending'
@@ -20,7 +20,7 @@ export default function HomePage() {
   return (
     <>
       <Title label={'Buscar Gifs'} variant={'h5'}/>
-      <SearchGif onSubmit={handleSubmit} />
+      <SearchForm onSubmit={handleSubmit} />
       <hr />
       <Title label={'Última Busqueda'} variant={'h5'}/>
       {loader ? (

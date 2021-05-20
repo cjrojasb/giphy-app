@@ -8,8 +8,10 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Gif({ title, id, url }) {
+export function Gif({ title, id, url, ...restOfGif }) {
   const classes = useStyles();
+
+  console.log(restOfGif)
 
   return (
     <Card>
@@ -33,3 +35,5 @@ export default function Gif({ title, id, url }) {
     </Card>
   )
 }
+
+export default React.memo(Gif)
