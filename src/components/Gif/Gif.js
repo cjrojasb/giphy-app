@@ -4,7 +4,7 @@ import { Link } from 'wouter'
 
 const useStyles = makeStyles({
   media: {
-    height: 300,
+    height: 350,
   },
 });
 
