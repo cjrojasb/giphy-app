@@ -6,12 +6,15 @@ import Loading from 'components/Loading/Loading'
 import Title from 'components/Title/Title'
 import { Button } from '@material-ui/core'
 import useNearScreen from 'hooks/useNearScreen'
+import useSEO from 'hooks/useSEO'
 import debounce from 'just-debounce-it'
 
 export default function SearchResultsPage({ params }) {
   const { keyword } = params
   const { loader, gifs, setPage } = useGifs({ keyword })
   const externalRef = useRef()
+  const title = gifs ? `${gifs.length} resultados de ${keyword}` : ''
+  useSEO({ title })
   const { isNearScreen } = useNearScreen({ externalRef: loader ? null : externalRef, once: false })
   // const handleNextPage = () => setPage(prevPage => prevPage + 1)
 
