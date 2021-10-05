@@ -4,7 +4,7 @@ import GifsContext from 'context/GifsContext'
 
 const INITIAL_PAGE = 0
 
-export function useGifs({ keyword } = { keyword: null }) {
+export function useGifs({ keyword, rating } = { keyword: null }) {
   const context = useContext(GifsContext)
   const { gifs, setGifs } = context
   const [loader, setLoader] = useState(false)
@@ -14,7 +14,7 @@ export function useGifs({ keyword } = { keyword: null }) {
 
   useEffect(() => {
     setLoader(true)
-    getGiphysByKeyword({ keyword: keywordToUse })
+    getGiphysByKeyword({ keyword: keywordToUse, rating })
     .then((res) => {
       console.log(res)
       setGifs(res)
@@ -29,7 +29,7 @@ export function useGifs({ keyword } = { keyword: null }) {
     if (page === INITIAL_PAGE) return
 
     setLoaderNextPage(true)
-    getGiphysByKeyword({ keyword:  keywordToUse, page })
+    getGiphysByKeyword({ keyword:  keywordToUse, rating, page })
     .then((res) => {
       setGifs(prevGifs => prevGifs.concat(res))
       setLoaderNextPage(false)

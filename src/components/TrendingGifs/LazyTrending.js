@@ -8,8 +8,6 @@ const TrendingGifs = lazy(
 export default function LazyTrending() {
   const {isNearScreen, fromRef} = useNearScreen({ distance: '200px' })
 
-  console.log(isNearScreen)
-
   return <div ref={fromRef}>
     <Suspense fallback={null}>
       {isNearScreen ? <TrendingGifs /> : null}
